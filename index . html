@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Papa ❤️ Princy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+background: linear-gradient(#ffd6e8,#fff0f6);
+font-family: 'Segoe UI', sans-serif;
+text-align:center;
+overflow-x:hidden;
+}
+
+.box{
+max-width:500px;
+margin:30px auto;
+background:white;
+border-radius:25px;
+padding:20px;
+box-shadow:0 0 25px rgba(0,0,0,0.15);
+}
+
+h1{color:#ff2f7d;}
+p{font-size:16px;line-height:1.7;color:#333;}
+
+.slideshow{
+position:relative;
+width:100%;
+height:320px;
+overflow:hidden;
+border-radius:18px;
+margin-bottom:15px;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 1.5s ease-in-out;
+}
+
+.active{opacity:1;}
+
+button{
+background:#ff2f7d;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+color:white;
+font-size:16px;
+margin-top:15px;
+cursor:pointer;
+}
+
+.heart{
+position:fixed;
+color:red;
+font-size:20px;
+animation: fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+<h1>Papa ❤️ Princy</h1>
+
+<div class="slideshow">
+<img class="slide" src="img1.jpg">
+<img class="slide" src="img2.jpg">
+</div>
+
+<p>
+Papa, nee en life oda most beautiful part.  
+Un smile, un care, un love ellame en world. 💕  
+Nee en future, nee en dream, nee en forever.  
+I love you always ❤️
+</p>
+
+<button onclick="love()">I Love You 💖</button>
+</div>
+
+<script>
+function love(){
+alert("Papa loves Princy forever 💞♾️");
+}
+
+/* Slideshow */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide(){
+slides.forEach(s => s.classList.remove("active"));
+slides[index].classList.add("active");
+index = (index + 1) % slides.length;
+}
+showSlide();
+setInterval(showSlide, 3000);
+
+/* Hearts */
+function createHeart(){
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML = "❤️";
+heart.style.left = Math.random()*100 + "vw";
+heart.style.fontSize = (Math.random()*20 + 10) + "px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
